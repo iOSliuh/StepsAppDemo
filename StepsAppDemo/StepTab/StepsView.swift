@@ -32,11 +32,17 @@ struct StepsView: View {
                             tabSwitch = i
                         }
                     } label: {
-                        Text(timeArray[i])
+                        VStack {
+                            Text(timeArray[i])
+                            if tabSwitch == i {
+                                Spacer().frame(height: 5)
+                                Rectangle.init().foregroundColor(.mainColor).frame(width: 20, height: 2.0)
+                            }
+                        }
                     }
                     .foregroundColor(tabSwitch == i ? .black: .dateGray)
-                    .padding(5)
-                    .font(Font.system(size: 18, weight: tabSwitch == i ? .bold : .regular))
+                    .padding(15)
+                    .font(Font.system(size: 16, weight: tabSwitch == i ? .bold : .regular))
                 }
                 Spacer()
                 
